@@ -3,7 +3,7 @@ const u = new Date()
 function printdate() {
 const j = u.getMonth();
 const b = a.getDate();
-console.log( " date is ",b," month is ",j);
+console.log( " current  date is ",b," month is ",j+1);
 }
 
 const pluto = "plutonium"
