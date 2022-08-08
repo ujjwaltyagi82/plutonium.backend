@@ -1,3 +1,4 @@
+
 const express = require('express');
 const abc = require('../introduction/intro')
 const router = express.Router();
@@ -15,24 +16,43 @@ router.get('/students', function (req, res){
     res.send(students)
 })
 
-router.get('/student-details/:name', function(req, res){
-    /*
-    params is an attribute inside request that contains 
-    dynamic values.
-    This value comes from the request url in the form of an 
-    object where key is the variable defined in code 
-    and value is what is sent in the request
-    */
+router.get('/get/movies/:indexNumber', function(req , res){
 
-    let requestParams = req.params
+const Thanos = ['LOKI' , 'THOR' , 'IRONAMN' , 'AVENGERS'];
 
-    // JSON strigify function helps to print an entire object
-    // We can use any ways to print an object in Javascript, JSON stringify is one of them
-    console.log("This is the request "+ JSON.stringify(requestParams))
-    let studentName = requestParams.name
-    console.log('Name of the student is ', studentName)
-    
-    res.send('Dummy response')
-})
+const loki = req.params.indexNumber;
+const a = Thanos[loki];
 
+if(loki>Thanos.length)
+{
+    console.log("use a valid index");
+}
+else{
+    console.log(a);
+}
+res.send(a);
+});
+//  router.get ('/get/films/:indexNumber' , function (req , res){
+
+//   let vs =   [ {
+//         'id': 1,
+//          'name': 'The Shining'
+//        }, {
+//         'id': 2,
+//         'name': 'Incendies'
+//        }, {
+//         'id': 3,
+//         'name': 'Rang de Basanti'
+//        }, {
+//         'id': 4,
+//         'name': 'Finding Nemo'
+//        }];
+//        const bs = req.params.indexNumber;
+//        const c = vs[bs];
+//        console.log(c);
+
+
+
+
+// 
 module.exports = router;
