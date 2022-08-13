@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema( {
     mobile: {
         type: String,
         unique: true,
-        required: true
+        required:true
     },
     emailId: String,
     gender: {
@@ -25,7 +25,17 @@ const userSchema = new mongoose.Schema( {
 
 module.exports = mongoose.model('User', userSchema) //users
 
+const bookschema = new mongoose.Schema( {
+    bookName: {
+    type : String,
+    required : true
+    },
+    authorName: String,
+    category: {
+        type: String,
+       enum:["friction" , "comedy" , "science" , "money"]
+    },
+    year: Number,
+}, { timestamps: true });
 
-
-// String, Number
-// Boolean, Object/json, array
+module.exports = mongoose.model('book' , bookschema)
