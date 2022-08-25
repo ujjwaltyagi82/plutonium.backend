@@ -1,3 +1,4 @@
+const { default: mongoose } = require("mongoose")
 const authorModel = require("../models/authorModel")
 const bookModel= require("../models/bookModel")
 const publisherModel = require("../models/PublisherModel")
@@ -30,10 +31,9 @@ const getBooksData= async function (req, res) {
 const getBooksWithAuthorDetails = async function (req, res) {
     let specificBook = await bookModel.find().populate('authorid').populate('publisherid')
     res.send({data: specificBook})
-
 }
+
 
 module.exports.createBook= createBook
 module.exports.getBooksData= getBooksData
 module.exports.getBooksWithAuthorDetails = getBooksWithAuthorDetails
-

@@ -6,9 +6,10 @@ const createpublisher= async function (req, res) {
     res.send({data: publisherCreated})
 }
 
-const getpublisherData= async function (req, res) {
-    let publishers = await publisherModel.find()
-    res.send({data: publishers})
+const getpublisherData = async function (req ,res){
+let publisher = await publisherModel.find()
+res.send({data : publisher})
+
 }
 
 module.exports.createpublisher = createpublisher
