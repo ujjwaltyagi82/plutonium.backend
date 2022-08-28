@@ -18,3 +18,12 @@ sum += ourarray[i];
 }
 console.log(sumarray())
 
+// [12, 45, 67, 89, 90, 34, 35, 55]
+
+let div = [12,45,67,89,90,34,35,55]
+for(let index = 0; index<div.length; index++){
+const newdiv = div[index];
+if(newdiv %5 === 0){
+console.log(newdiv)
+}
+}
