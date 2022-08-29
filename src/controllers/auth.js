@@ -2,6 +2,9 @@ const verify = async function (req ,res, next){
 let token = req.headers["x-auth-token"];
 if (!token) token =req.headers["x-auth-token"]
 if(!token) return res.send({status : false , msg:"user token must be present"})
+let decode = jwt.verify(token , 'functionup - plutonium')
+if(!decode) return res.send({status : false , msg : "token is invalid"})
+
 }
 
 
