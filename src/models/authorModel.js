@@ -1,19 +1,30 @@
 const mongoose = require('mongoose');
 
 const authorSchema = new mongoose.Schema({
-    fname: { type: String, required: true },
-    lname: { type: String, required: true },
+    fname: {
+        type: String,
+        required: 'First name is required',
+        trim: true
+        
+    },
+    lname: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
     title: {
         type: String,
         required: true,
         enum: ["Mr", "Mrs", "Miss"]
     },
+
     email: {
         type: String,
         unique: true,
-        match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please enter a valid email']
+        trim: true
     },
-    password: { type: String, required: true },
+    password: { type: String, required: true,  trim: true },
 
 }, { timestamps: true });
 
