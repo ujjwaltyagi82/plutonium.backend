@@ -64,6 +64,7 @@ const createBlog = async function (req, res) {
         if (!(findid)) {
             return res.status(404).send({ status: false, msg: "Invalid authorId. Author Not Found " })
         }
+
         let savedData = await BlogModel.create(data)
         return res.status(201).send({ status: true, data: savedData })
     }
