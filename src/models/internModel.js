@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
 const emailValidation = function (email){
-    let regexForEmail = /^\w+([\.-]?\w)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    let regexForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     return regexForEmail.test(email)
 }
 
